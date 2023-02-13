@@ -1,3 +1,13 @@
+<?php
+
+    session_start();    
+    // if((isset($_SESSION['loged'])) && ($_SESSION['loged'] == true)){
+    //     header("Location: index.php");
+    //     exit();
+    // }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,14 +30,21 @@
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form action="#">
+            <form action="logowanie.php" method="post">
                 <h1>Zaloguj się</h1>
                 <br>
-                <input type="email" placeholder="Email" name="login" />
-                <input type="password" placeholder="Hasło" name="passwd"/>
+                <input type="text" placeholder="Login" name="login" />
+                <input type="password" placeholder="Hasło" name="haslo"/>
                 <a href="#">Zapomniałeś hasła?</a>
                 <button>Zaloguj</button>
             </form>
+            <?php
+            
+                if(isset($_SESSION['blad'])){
+                    echo( $_SESSION['blad']);
+                }
+
+            ?>
         </div>
         <div class="overlay-container">
             <div class="overlay">
