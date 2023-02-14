@@ -1,6 +1,16 @@
 <?php
 
     session_start();
+    // Wylogowanie
+    function logout(){
+        if(@$_POST=="Wyloguj"){
+            unset($_SESSION['loged']);
+            header("Location: rejestracja.php");
+            echo("<p>dziala</p>");
+        }
+    }
+
+    logout();
 
     if((!isset($_POST['login'])) || (!isset($_POST['haslo']))){
         header("Location: rejestracja.php");
@@ -49,3 +59,18 @@
         $con->close();
     }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="" method="Post">
+        <input type="submit" name="logout" value="Wyloguj">
+    </form>
+</body>
+</html>
