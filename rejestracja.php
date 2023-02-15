@@ -39,12 +39,14 @@
                 <button>Zaloguj</button>
             </form>
             <?php
-            
+                
                 if(isset($_SESSION['blad'])){
                     echo( $_SESSION['blad']);
+                    unset($_SESSION['blad']);
                 }
-
+                
             ?>
+            
         </div>
         <div class="overlay-container">
             <div class="overlay">

@@ -3,10 +3,9 @@
     session_start();
     // Wylogowanie
     function logout(){
-        if(@$_POST=="Wyloguj"){
-            unset($_SESSION['loged']);
+        if(isset($_POST['logout'])){
+            session_destroy();
             header("Location: rejestracja.php");
-            echo("<p>dziala</p>");
         }
     }
 
@@ -50,7 +49,7 @@
                 $wynik->close();
             }
             else{
-                $_SESSION['blad']='<span style="color:red;">Nieprawidlowy login lub haslo</span>';
+                $_SESSION['blad']='<div style="color:red; z-index:99; ">Nieprawidlowy login lub haslo</div>';
                 header('Location: rejestracja.php');
                 // Dodać $_SESSION['blad'] pod logowaniem jesli issset
             }
