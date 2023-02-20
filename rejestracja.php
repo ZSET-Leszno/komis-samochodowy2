@@ -34,7 +34,7 @@
                 <h1>Zaloguj się</h1>
                 <br>
                 <input type="text" placeholder="Login" name="login" />
-                <input type="password" placeholder="Hasło" name="haslo"/>
+                <input type="password" placeholder="Hasło" name="haslo" id="passwd"/>
                 <a href="#">Zapomniałeś hasła?</a>
                 <button>Zaloguj</button>
             </form>
@@ -42,6 +42,10 @@
                 
                 if(isset($_SESSION['blad'])){
                     echo( $_SESSION['blad']);
+                    echo(
+                        "<script>
+                            document.getElementById('passwd').classList.add('invalid');
+                        </script>");
                     unset($_SESSION['blad']);
                 }
                 
