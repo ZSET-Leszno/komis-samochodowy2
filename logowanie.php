@@ -27,26 +27,31 @@
         $haslo = $_POST['haslo'];
         // ZABEZPIECZENIE
         $login = htmlentities($login,ENT_QUOTES,"UTF-8");
-        $haslo = htmlentities($haslo,ENT_QUOTES,"UTF-8");
+        // $haslo = htmlentities($haslo,ENT_QUOTES,"UTF-8");
 
-        $zapytanie = "SELECT * FROM uzytkownicy WHERE Logd='$login' AND Haslo='$haslo'";
-        
+        $zapytanie = "SELECT * FROM uzytkownicy WHERE Logd='$login'";
+        mysqli_real_escape_string($con,$login);
         if($wynik = @$con->query($zapytanie)){
             $ilu_users = $wynik->num_rows;
 
             if($ilu_users>0){
-
-                $_SESSION['loged'] = true;
-                
                 $row = $wynik->fetch_assoc();
-                echo($user = $row['Email']);
-                $_SESSION['user'] = $row['Logd'];
+                if(password_verify($haslo,$row['Haslo'])){
+                    $_SESSION['loged'] = true;
+                    echo($user = $row['Email']);
+                    $_SESSION['user'] = $row['Logd'];
 
-                //wpisac
+                    //wpisac
 
 
-                unset($_SESSION['blad']);
-                $wynik->close();
+                    unset($_SESSION['blad']);
+                    $wynik->close();
+                }
+                else{
+                    $_SESSION['blad']='<div style="color:red; z-index:99; ">haslo</div>';
+                    header('Location: rejestracja.php');
+                    // Dodać $_SESSION['blad'] pod logowaniem jesli issset
+                }
             }
             else{
                 $_SESSION['blad']='<div style="color:red; z-index:99; ">Nieprawidlowy login lub haslo</div>';
