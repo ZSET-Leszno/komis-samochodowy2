@@ -20,14 +20,34 @@
 <body>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form action="#">
+            <div id=info></div>
+            <form action="#" onsubmit="return false">
                 <h1>Zarejestruj się</h1>
                 <br>
-                <input type="text" placeholder="Login" />
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Hasło" />
-                <button>Zarejestruj</button>
+                <input type="text" placeholder="Login" name="login_r" id="login_r"/>
+                <input type="email" placeholder="Email" name="email_r" id="email_r" />
+                <input type="password" placeholder="Hasło" name="passwd_r" id="passwd_r"/>
+                <button onclick="nowa();">Zarejestruj</button>
             </form>
+            <script>
+
+
+
+
+                function nowa(){
+                    var obkt = new XMLHttpRequest();
+                    obkt.onreadystatechange=function(){
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("info").innerHTML =
+                            this.responseText;
+                        }
+                    }
+
+                    obkt.open("Post","testt.php?",true);
+                    obkt.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    obkt.send("login_r=" + document.getElementById("login_r").value+"&"+"email_r=" + document.getElementById("email_r").value+"&"+"passwd_r=" + document.getElementById("passwd_r").value);
+                }
+            </script>
         </div>
         <div class="form-container sign-in-container">
             <form action="logowanie.php" method="post">
