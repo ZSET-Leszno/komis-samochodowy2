@@ -40,7 +40,12 @@
                         if (this.readyState == 4 && this.status == 200) {
                             document.getElementById("info").innerHTML =
                             this.responseText;
-    
+                            if(this.responseText == "dziala"){
+                                document.getElementById("login_r").value = "";
+                                document.getElementById("email_r").value = "";
+                                document.getElementById("passwd_r").value = "";
+
+                            }
                         }
                     }
 
