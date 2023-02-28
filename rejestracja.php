@@ -101,11 +101,18 @@
                 }
                 
             ?>
-
+            <!---------CZYSZCZENIE REJESTRACJI I LOGOWANIA PO PRZEJSCIU----------->
             <script>
                 function clean_login(){
                     document.getElementById('passwd').classList.remove('invalid');
                     document.getElementById('sesion_blad').innerHTML = "";
+                }
+
+                function clean_registration(){
+                    document.getElementById('login_r').classList.remove('invalid');
+                    document.getElementById('email_r').classList.remove('invalid');
+                    document.getElementById('passwd_r').classList.remove('invalid');
+                    document.getElementById('info').innerHTML = "";
                 }
             </script>
             
@@ -116,7 +123,7 @@
                     <h1>Witamy spowrotem!</h1>
                     <p>
                         Aby pozostać z nami w kontakcie, zaloguj się za pomocą swoich danych osobowych</p>
-                    <button class="ghost" id="signIn">Zaloguj się</button>
+                    <button class="ghost" id="signIn" onclick="clean_registration()">Zaloguj się</button>
                 </div>
                 <div class="overlay-panel overlay-right">
                     <h1>Witaj!</h1>
