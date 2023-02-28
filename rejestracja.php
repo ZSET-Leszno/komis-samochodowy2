@@ -20,8 +20,8 @@
 <body>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <div id=info></div>
             <form action="#" onsubmit="return false">
+                <div id="info" style="color:red; z-index:99;" ></div>
                 <h1>Zarejestruj się</h1>
                 <br>
                 <input type="text" placeholder="Login" name="login_r" id="login_r"/>
@@ -101,6 +101,13 @@
                 }
                 
             ?>
+
+            <script>
+                function clean_login(){
+                    document.getElementById('passwd').classList.remove('invalid');
+                    document.getElementById('sesion_blad').innerHTML = "";
+                }
+            </script>
             
         </div>
         <div class="overlay-container">
@@ -114,7 +121,7 @@
                 <div class="overlay-panel overlay-right">
                     <h1>Witaj!</h1>
                     <p>Podaj swoje dane osobowe i rozpocznij <br>z nami podróż</p>
-                    <button class="ghost" id="signUp">Zarejestruj się</button>
+                    <button class="ghost" id="signUp" onclick="clean_login()">Zarejestruj się</button>
                     <script src="javareje.js"></script>
                 </div>
             </div>

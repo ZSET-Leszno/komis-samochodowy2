@@ -54,7 +54,7 @@
                 }
             }
             else{
-                $_SESSION['blad']='<div style="color:red; z-index:99; ">Nieprawidlowy login lub haslo</div>';
+                $_SESSION['blad']='<div id="sesion_blad" style="color:red; z-index:99; ">Nieprawidlowy login lub haslo</div>';
                 header('Location: rejestracja.php');
                 // Dodać $_SESSION['blad'] pod logowaniem jesli issset
             }

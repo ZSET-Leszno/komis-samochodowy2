@@ -7,19 +7,19 @@
     $blad = true;
 
     if(!$_POST['login_r']){
-        echo("Podaj login<br>");
+        echo("Podaj login<br><br>");
         $blad=false;
     }
 
     if(!$_POST['email_r']){
-        echo("Podaj email<br>");
+        echo("Podaj email<br><br>");
         $blad=false;
         
     }
     
 
     if(!$_POST['passwd_r']){
-        echo("Podaj haslo<br>");
+        echo("Podaj haslo<br><br>");
         $blad=false;
 
     }
@@ -27,17 +27,17 @@
     if(($_POST['passwd_r']) && ($_POST['email_r']) && ($_POST['login_r'])){
         // sprawdzenie znaków w loginie
         if(ctype_alnum($login)==false){
-            echo("login moze zawierać tylko polskie znaki litery i cyfry<br>");
+            echo("Login moze zawierać tylko polskie znaki litery i cyfry<br><br>");
             $blad=false;
         }
         // walidacja adresu email
         if((filter_var($email_sanitized,FILTER_VALIDATE_EMAIL)==false) || ($email_sanitized != $email)){
-            echo("Podaj poprawny adres email<br>");
+            echo("Podaj poprawny adres email<br><br>");
             $blad=false;
         }
 
         if(strlen($passwd)<8){
-            echo("Hasło musi mieć minimum 8 znaków<br>");
+            echo("Hasło musi mieć minimum 8 znaków<br><br>");
             $blad=false;
         }
 
@@ -68,7 +68,7 @@
                     $ilosc_maili = $zapytanie->num_rows;
                     
                     if($ilosc_maili > 0){
-                        echo("Podany email jest juz zajęty");
+                        echo("Podany email jest juz zajęty<br><br>");
                         $blad=false;
                     }
                 }
@@ -86,7 +86,7 @@
                     $ilosc_loginow = $zapytanie->num_rows;
                     
                     if($ilosc_loginow > 0){
-                        echo("Podany login jest juz zajęty");
+                        echo("Podany login jest juz zajęty<br><br>");
                         $blad=false;
                     }
                 }

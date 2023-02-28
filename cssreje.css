@@ -261,6 +261,11 @@ footer a {
     width: 100v;
 }
 
+#info{
+    text-align: center;
+    width: 100%;
+}
+
 @keyframes inv{
     25%{
         translate: 6px 0;
