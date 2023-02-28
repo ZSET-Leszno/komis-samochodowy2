@@ -259,6 +259,7 @@ footer a {
     border: 2px solid #E70707;
     animation: inv 0.3s 2;
     width: 100v;
+    border-radius: 5px!important;
 }
 
 #info{
