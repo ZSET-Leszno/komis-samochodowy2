@@ -33,7 +33,7 @@
 
 
 
-
+                // Przesyłanie i odbieranie danych z test.php
                 function nowa(){
                     var obkt = new XMLHttpRequest();
                     obkt.onreadystatechange=function(){
@@ -41,10 +41,34 @@
                             document.getElementById("info").innerHTML =
                             this.responseText;
                             if(this.responseText == "dziala"){
+                                // czyszczenie wartości po rejestracji
                                 document.getElementById("login_r").value = "";
                                 document.getElementById("email_r").value = "";
                                 document.getElementById("passwd_r").value = "";
+                            // Podświetlanie na czerwono zle wypelnionych pól
+                            }
+                            else{
+                                if((this.responseText.includes("Podaj login")) || (this.responseText.includes("Podany login jest juz zajęty")) || (this.responseText.includes("login moze zawierać tylko polskie znaki litery i cyfry"))){
+                                    document.getElementById('login_r').classList.add('invalid');
+                                }
 
+                                else{
+                                    document.getElementById('login_r').classList.remove('invalid');
+                                }
+
+                                if((this.responseText.includes("Podaj email")) || (this.responseText.includes("Podany email jest juz zajęty")) || (this.responseText.includes("Podaj poprawny adres email"))){
+                                    document.getElementById('email_r').classList.add('invalid');
+                                }
+                                else{
+                                    document.getElementById('login_r').classList.remove('invalid');
+                                }
+
+                                if(this.responseText.includes("Podaj haslo") || (this.responseText.includes("Hasło musi mieć minimum 8 znaków"))){
+                                    document.getElementById('passwd_r').classList.add('invalid');
+                                }
+                                else{
+                                    document.getElementById('login_r').classList.remove('invalid');
+                                }
                             }
                         }
                     }
@@ -65,10 +89,11 @@
                 <button>Zaloguj</button>
             </form>
             <?php
-                
+                // walidacja logowania
                 if(isset($_SESSION['blad'])){
                     echo( $_SESSION['blad']);
                     echo(
+                        // Podświetlanie na czerwono zle wypelnionych pól
                         "<script>
                             document.getElementById('passwd').classList.add('invalid');
                         </script>");
