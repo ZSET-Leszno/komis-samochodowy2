@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 13 Mar 2023, 14:52
--- Wersja serwera: 10.4.13-MariaDB
--- Wersja PHP: 7.4.8
+-- Czas generowania: 15 Mar 2023, 16:48
+-- Wersja serwera: 10.4.24-MariaDB
+-- Wersja PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,7 +37,65 @@ CREATE TABLE `marki` (
 --
 
 INSERT INTO `marki` (`Id`, `Nazwa_marki`) VALUES
-(1, 'Toyota');
+(1, 'Toyota'),
+(2, 'Audi'),
+(3, 'BMW'),
+(4, 'Citroen'),
+(5, 'Dacia'),
+(6, 'Fiat'),
+(7, 'Ford'),
+(8, 'Hyundai'),
+(9, 'Kia'),
+(10, 'Mercedes'),
+(11, 'Nissan'),
+(12, 'Opel'),
+(13, 'Peugeot'),
+(14, 'Renault'),
+(15, 'SEAT'),
+(16, 'Skoda'),
+(17, 'Volkswagen'),
+(18, 'Volvo'),
+(19, 'Abarth'),
+(20, 'Alfa Romeo'),
+(21, 'Alpina'),
+(22, 'Alpine'),
+(23, 'Aston Martin'),
+(24, 'Bentley'),
+(25, 'Cupra'),
+(26, 'Dodge'),
+(27, 'DS'),
+(28, 'Ferrari'),
+(29, 'Fuso'),
+(30, 'Honda'),
+(31, 'Ineos'),
+(32, 'Isuzu'),
+(33, 'Iveco'),
+(34, 'Jaguar'),
+(35, 'Jeep'),
+(36, 'Kawasaki'),
+(37, 'Lamborghini'),
+(38, 'Land Rover'),
+(39, 'LEVC'),
+(40, 'Lexus'),
+(41, 'MAN'),
+(42, 'Maserati'),
+(43, 'Maxus'),
+(44, 'Mazda'),
+(45, 'McLaren'),
+(46, 'MINI'),
+(47, 'Mitsubishi'),
+(48, 'Piaggio'),
+(49, 'Porsche'),
+(50, 'RAM'),
+(51, 'Renault Trucks'),
+(52, 'Rolls-Royce'),
+(53, 'Seres'),
+(54, 'Skywell'),
+(55, 'Smart'),
+(56, 'SsangYong'),
+(57, 'Subaru'),
+(58, 'Suzuki'),
+(59, 'Tesla');
 
 -- --------------------------------------------------------
 
@@ -50,13 +108,6 @@ CREATE TABLE `modele` (
   `Nazwa_modelu` varchar(128) NOT NULL,
   `Id_marki` int(9) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Zrzut danych tabeli `modele`
---
-
-INSERT INTO `modele` (`Id`, `Nazwa_modelu`, `Id_marki`) VALUES
-(1, 'Prius', 1);
 
 -- --------------------------------------------------------
 
@@ -79,117 +130,6 @@ INSERT INTO `paliwa` (`Id`, `Rodzaj_paliwa`) VALUES
 (3, 'Benzyna + gaz'),
 (4, 'Elektryczny'),
 (5, 'Hybryda');
-
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `pojemnosci_skokowe`
---
-
-CREATE TABLE `pojemnosci_skokowe` (
-  `Id` int(9) NOT NULL,
-  `Pojemnosc_skokowa_cm3` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Zrzut danych tabeli `pojemnosci_skokowe`
---
-
-INSERT INTO `pojemnosci_skokowe` (`Id`, `Pojemnosc_skokowa_cm3`) VALUES
-(1, 0.8),
-(2, 0.9),
-(3, 1),
-(4, 1.1),
-(5, 1.2),
-(6, 1.3),
-(7, 1.4),
-(8, 1.5),
-(9, 1.6),
-(10, 1.7),
-(11, 1.8),
-(12, 1.9),
-(13, 2),
-(14, 2.1),
-(15, 2.2),
-(16, 2.3),
-(17, 2.4),
-(18, 2.5),
-(19, 2.6),
-(20, 2.7),
-(21, 2.8),
-(22, 2.9),
-(23, 3),
-(24, 3.1),
-(25, 3.2),
-(26, 3.3),
-(27, 3.4),
-(28, 3.5),
-(29, 3.6),
-(30, 3.7),
-(31, 3.8),
-(32, 3.9),
-(33, 4),
-(34, 4.1),
-(35, 4.2),
-(36, 4.3),
-(37, 4.4),
-(38, 4.5);
-
--- --------------------------------------------------------
-
---
--- Struktura tabeli dla tabeli `roczniki`
---
-
-CREATE TABLE `roczniki` (
-  `Id` int(9) NOT NULL,
-  `Rocznik` int(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Zrzut danych tabeli `roczniki`
---
-
-INSERT INTO `roczniki` (`Id`, `Rocznik`) VALUES
-(1, 1985),
-(2, 1986),
-(3, 1987),
-(4, 1988),
-(5, 1989),
-(6, 1990),
-(7, 1991),
-(8, 1992),
-(9, 1993),
-(10, 1994),
-(11, 1995),
-(12, 1996),
-(13, 1997),
-(14, 1998),
-(15, 1999),
-(16, 2000),
-(17, 2001),
-(18, 2002),
-(19, 2003),
-(20, 2004),
-(21, 2005),
-(22, 2006),
-(23, 2007),
-(24, 2008),
-(25, 2009),
-(26, 2010),
-(27, 2011),
-(28, 2012),
-(29, 2013),
-(30, 2014),
-(31, 2015),
-(32, 2016),
-(33, 2017),
-(34, 2018),
-(35, 2019),
-(36, 2020),
-(37, 2021),
-(38, 2022),
-(39, 2023);
 
 -- --------------------------------------------------------
 
@@ -243,32 +183,20 @@ ALTER TABLE `paliwa`
   ADD PRIMARY KEY (`Id`);
 
 --
--- Indeksy dla tabeli `pojemnosci_skokowe`
---
-ALTER TABLE `pojemnosci_skokowe`
-  ADD PRIMARY KEY (`Id`);
-
---
--- Indeksy dla tabeli `roczniki`
---
-ALTER TABLE `roczniki`
-  ADD PRIMARY KEY (`Id`);
-
---
 -- Indeksy dla tabeli `uzytkownicy`
 --
 ALTER TABLE `uzytkownicy`
   ADD PRIMARY KEY (`Id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT dla zrzuconych tabel
 --
 
 --
 -- AUTO_INCREMENT dla tabeli `marki`
 --
 ALTER TABLE `marki`
-  MODIFY `Id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT dla tabeli `modele`
@@ -281,18 +209,6 @@ ALTER TABLE `modele`
 --
 ALTER TABLE `paliwa`
   MODIFY `Id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT dla tabeli `pojemnosci_skokowe`
---
-ALTER TABLE `pojemnosci_skokowe`
-  MODIFY `Id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
-
---
--- AUTO_INCREMENT dla tabeli `roczniki`
---
-ALTER TABLE `roczniki`
-  MODIFY `Id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT dla tabeli `uzytkownicy`
