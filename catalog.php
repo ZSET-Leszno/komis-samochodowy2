@@ -68,8 +68,8 @@
             echo('dziala');
             $wynik = mysqli_query($con, "SELECT * FROM samochody");
             while($rekord = mysqli_fetch_array($wynik)){
-                // echo '<div class="post" style="background-image: url(\'' . $rekord["zdj_1"] . '\')">';
-                echo('<img src="\'' . $rekord["zdj_1"] . '\'">');
+                echo '<div class="post" style="width:60rem; height:60rem; background-repeat: no-repeat; background-image: url(\'' .'data:image;base64,'.base64_encode($rekord["zdj_1"]) . '\')">';
+                // echo('<img src="data:image;base64,'.base64_encode($rekord['zdj_1']).' ">');
             }
         }
 

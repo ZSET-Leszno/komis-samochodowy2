@@ -324,6 +324,18 @@ footer{
     
 }
 
+#katalog .post{
+    height: 30rem!important;
+    width: 30rem!important;
+    background-color: var(--btns);
+    color: aliceblue;
+    font-size: 0.76vw;
+    min-height: fit-content;
+    min-width: fit-content;
+    width: 60%;
+    
+}
+
 /* animacja z baner */
 @keyframes moves{
     0%   {left:-12rem;}
