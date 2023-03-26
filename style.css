@@ -1,0 +1,366 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root{
+    --bcg: #201c2b;
+    --dark: #403454;
+    --bd: #402c5c;
+    --btns: #00A8E0;
+    --btns_hover: #007aa3;
+    --tiles:#352F45;
+}
+/* menu */
+nav span{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    padding: 3vh 5vw;
+    z-index: 100;
+}
+
+nav #fit{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: white;
+    gap: 4rem;
+    font-size: 2rem;
+}
+
+nav #fit div a:hover{
+    color: var(--btns);
+}
+
+#fit a{
+    text-decoration: none;
+    color: aliceblue;
+}
+
+#logo h1{
+    color: aliceblue;
+}
+
+#logo h1:hover{
+    color: var(--btns);
+    cursor: pointer;
+}
+
+/* baner */
+.baner{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    background: url(wp2619698.webp) no-repeat center;
+    background-size: cover;
+    height: 90vh;
+    min-height: 30rem;
+    align-items: center;
+    background-color:rgba(0, 0, 0, 0.795);
+    background-blend-mode: multiply;
+    min-zoom: 90%;
+}
+
+#text{
+    margin-top: 10vh;
+    padding: 7rem;
+    text-align: left;
+    display: flex;
+    flex-wrap: nowrap;
+    position: relative;
+    animation-name:moves;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    width: 50%;
+}
+
+#text div span{
+    color: aliceblue;
+    gap: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    margin-right: auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#text div span p{
+    font-size: 1.9rem!important;
+    white-space: nowrap;
+}
+
+#text div span h1{
+    font-size: 2.5rem!important;
+    word-spacing: 2px!important;
+}
+
+/* przycisk na banerze */
+#text a button{
+    padding: 0.8rem 2rem 0.8rem 2rem;
+    min-height: fit-content;
+    min-width: fit-content;
+    background-color:var(--btns);
+    border: 0;
+    border-radius: 5rem;
+    font-size: 1.1rem;
+    margin: 1.2rem 0 0 0;
+    color: aliceblue;
+}
+
+#text a button:hover{
+    background-color: var(--btns_hover);
+    cursor: pointer;
+}
+/* info pod banerem */
+#info{
+    width: 100%;
+}
+
+#info div{
+    display: flex;
+    flex-direction: row;
+    min-block-size: fit-content;
+}
+/* czarne klocki z info */
+.tile{
+    display: flex;
+    flex-direction: column!important;
+    background-color: var(--tiles);
+    text-align: justify;
+    color: aliceblue;
+    min-height: fit-content;
+    min-width: fit-content;
+    width: 20%;
+    padding: 1.5rem;
+    font-size: 0.76vw;
+}
+
+.tile div a i{
+    color: var(--btns);
+}
+
+.tile div a i:hover{
+    color: var(--btns_hover);
+}
+
+/* pomaranczowy klocek z info */
+.tile_2{
+    background-color: var(--btns);
+    color: aliceblue;
+    font-size: 0.76vw;
+    min-height: fit-content;
+    min-width: fit-content;
+    width: 60%;
+}
+
+.tile_2 div {
+    flex-shrink: 2;
+    gap: 1vw;
+}
+
+.tile div {
+    display: flex;
+    flex-shrink: 2;
+    flex-shrink: 2;
+}
+
+.tile_2 div a i{
+    color: aliceblue;
+}
+
+.tile_2 div a i:hover{
+    color: rgba(240, 248, 255, 0.74);
+}
+
+main{
+    background-color: var(--bcg);
+    width: 100%;
+    text-align: center;
+    color: aliceblue;
+    padding: 5rem 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+main h1::after{
+    content: ' ';
+    display: block;
+    height: 3px;
+    background-color: var(--btns);
+    width: 8%;
+    margin: 1.5rem auto;
+}
+
+main h1 span{
+    color: #00A8E0;
+}
+
+main p{
+    font-size: 1.5rem;
+    letter-spacing: 1.5px;
+}
+
+main #cz1::after{
+    content: ' ';
+    display: block;
+    height: 3px;
+    background-color: var(--btns);
+    width: 80%;
+    margin: 8rem auto;
+}
+
+#prezentacja .obraz{
+    background-image: url(imgp1.jpg);
+    height: 40vh;
+    color: white;
+    object-fit:cover;
+    background-repeat: no-repeat;
+}
+
+#prezentacja{
+    margin-bottom:5rem;
+    overflow: hidden;
+    min-width: fit-content;
+}
+
+.obraz{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 20rem;
+    gap: 10px;
+    box-sizing:border-box;
+}
+
+.obraz a{
+    font-size: 6vw;
+    text-decoration: none;
+    margin: auto;
+    color: white;
+    display: none;
+}
+
+.obraz:hover{
+    background-color:rgba(0, 0, 0, 0.795);
+    background-blend-mode: multiply;
+    cursor: pointer;
+}
+
+.obraz:hover a{
+    display: block;
+}
+
+footer{
+    background-color: rgb(12, 12, 12);
+    height: 10vh;
+}
+
+
+#sidenav{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(12, 12, 12);;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 0rem;
+    height: 100vh;
+    gap: 10px;
+    padding-top: 200px;
+    z-index: 90;
+
+}
+
+#sidenav a{
+    text-decoration: none;
+    color: var(--btns);
+    text-align: center;
+    font-size: 1.7rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+#sidenav a.active{
+    color: var(--dark);
+}
+
+#toggler{
+    display: none;
+    cursor: pointer;
+    flex: 0 0 auto;
+    z-index: 100;
+}
+
+#toggler .strap{
+    width: 25px;
+    height: 2px;
+    background-color: white;
+    margin: 6px 0;
+    display: block;
+    transition: 0.4s;
+    transform-origin: left center;
+}
+
+#toggler.change .strap:nth-child(1) {
+    transform: translate(15%, -33%) rotate(45deg);
+}
+#toggler.change .strap:nth-child(2) {
+    opacity: 0;
+}
+#toggler.change .strap:nth-child(3) {
+    transform: translate(15%, 33%) rotate(-45deg) ;
+}
+
+/* KATALOG */
+
+#katalog{
+    
+}
+
+/* animacja z baner */
+@keyframes moves{
+    0%   {left:-12rem;}
+    100% {left:5rem;}
+}
+
+@media screen and (max-width: 900px){
+    #info div .tile h3{
+        display: none!important;
+    }
+    #info div .tile{
+        width: 33.3333333%!important;
+        text-align: center;
+    }
+
+    #info div .tile p{
+       display: none;
+    }
+
+    #info div .tile_2{
+        display: none!important;
+    }
+}
+
+
+
+
+@media screen and (min-width: 980px) {
+    #sidenav {
+        width: 0 !important;
+    }
+}
+@media screen and (max-width: 980px) {
+    nav span #fit {
+        display: none;
+    }
+    #toggler {
+        display: block;
+    }
+}
