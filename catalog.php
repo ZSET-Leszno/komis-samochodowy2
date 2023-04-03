@@ -59,6 +59,7 @@
         </article>
     </div>
     <section id="katalog">
+    <div id="filtry">FILTRY I SORTOWANIE</div>
     <?php
         
         $con = @new mysqli($host, $db_user, $db_password, $db_name);
@@ -67,12 +68,22 @@
         } else{
             echo('dziala');
             $wynik = mysqli_query($con, "SELECT * FROM samochody");
+            echo '<div id="zamkniecie">';
             while($rekord = mysqli_fetch_array($wynik)){
-                echo '<div class="oferta"><div class="post" style="background-repeat: no-repeat; background-image: url(\'' .'data:image;base64,'.base64_encode($rekord["zdj_1"]) . '\');"></div>';
-                echo'<div class="dane_oferta"><p>'.$rekord["Cena_zl"].'</p></div>';
+                if($rekord["Id_paliwo"] == 1){
+                    $paliwo = "Benzyna";
+                } else{
+                    $paliwo = "Diesel";
+                }
+                echo '<div class="oferta">';
+                echo '<img src="data:image/png;base64,'.base64_encode($rekord['zdj_1']).'">';
+                echo '<div class="model"></div>';
+                echo'<div class="dane_oferta"><p class="cena">'."Cena: ".$rekord["Cena_zl"]." PLN".'</p><p>'."Rok produkcji: ".$rekord["Rok_produkcji"].'</p>
+                <p>'."Pojemność skokowa (cm3): ".$rekord["Pojemnosc_skokowa_cm3"].'</p><p>'."Paliwo: ".$paliwo.'</p><button>Obserwuj</button></div>';
                 echo '</div>';
                 
             }
+            echo '</div>';
         }
 
     ?>
