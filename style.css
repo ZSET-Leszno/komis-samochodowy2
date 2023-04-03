@@ -320,20 +320,26 @@ footer{
 
 /* KATALOG */
 
-#katalog{
-    
+#katalog {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
 }
 
-#katalog .post{
+#katalog .oferta {
+    display: flex;
+    flex-direction: row;
+    padding: 3rem;
+}
+
+#katalog .oferta .post {
     height: 30rem!important;
     width: 30rem!important;
     background-color: var(--btns);
     color: aliceblue;
-    font-size: 0.76vw;
-    min-height: fit-content;
-    min-width: fit-content;
-    width: 60%;
-    
+    font-size: 0.76vw;  
+    background-size: cover;
 }
 
 /* animacja z baner */

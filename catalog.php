@@ -58,7 +58,7 @@
             </div>
         </article>
     </div>
-    <section id="katalog" class=" d-flex flex-column">
+    <section id="katalog">
     <?php
         
         $con = @new mysqli($host, $db_user, $db_password, $db_name);
@@ -68,12 +68,13 @@
             echo('dziala');
             $wynik = mysqli_query($con, "SELECT * FROM samochody");
             while($rekord = mysqli_fetch_array($wynik)){
-                echo '<div class="post" style="width:60rem; height:60rem; background-repeat: no-repeat; background-image: url(\'' .'data:image;base64,'.base64_encode($rekord["zdj_1"]) . '\')">';
-                // echo('<img src="data:image;base64,'.base64_encode($rekord['zdj_1']).' ">');
+                echo '<div class="oferta"><div class="post" style="background-repeat: no-repeat; background-image: url(\'' .'data:image;base64,'.base64_encode($rekord["zdj_1"]) . '\');"></div>';
+                echo'<div class="dane_oferta"><p>'.$rekord["Cena_zl"].'</p></div>';
+                echo '</div>';
+                
             }
         }
 
-        // dopisać skrypt wyświetlający kafle html z danymi o autach z bazy (Perczak oddaj baze xD)
     ?>
     </section>
 </html>
