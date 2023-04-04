@@ -23,6 +23,8 @@ nav span{
     width: 100%;
     padding: 3vh 5vw;
     z-index: 100;
+    background-color: rgba(0, 0, 0, 0.356);
+
 }
 
 nav #fit{
