@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     scroll-behavior: smooth;
+    font-family: 'Montserrat', sans-serif;
+
 }
 
 :root{
@@ -14,7 +17,9 @@
     --btns_hover: #007aa3;
     --tiles:#352F45;
 }
+
 /* menu */
+
 nav span{
     display: flex;
     flex-direction: row;
@@ -24,7 +29,7 @@ nav span{
     padding: 3vh 5vw;
     z-index: 100;
     background-color: rgba(0, 0, 0, 0.356);
-
+    font-family: 'Montserrat', sans-serif;
 }
 
 nav #fit{
@@ -34,6 +39,7 @@ nav #fit{
     color: white;
     gap: 4rem;
     font-size: 2rem;
+    font-family: 'Montserrat', sans-serif;
 }
 
 nav #fit div a:hover{
@@ -179,6 +185,11 @@ nav #fit div a:hover{
     color: rgba(240, 248, 255, 0.74);
 }
 
+.tile_2 div h3, p {
+    font-family: 'Montserrat', sans-serif;
+
+}
+
 main{
     background-color: var(--bcg);
     width: 100%;
@@ -188,6 +199,7 @@ main{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    font-family: 'Montserrat', sans-serif;
 }
 
 main h1::after{
@@ -206,6 +218,7 @@ main h1 span{
 main p{
     font-size: 1.5rem;
     letter-spacing: 1.5px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 main #cz1::after{
@@ -339,12 +352,14 @@ footer{
     flex-wrap: wrap;
     padding: 2rem;
     width: 100%;
-    border: solid 3px var(--btns);
     margin: 1rem 0 1rem 0;
     border-radius: 5px;
-    background-color: aliceblue;
+    background-color: var(--bd);
     min-width: fit-content;
     justify-content:space-between;
+    color: aliceblue;
+    font-family: 'Montserrat', sans-serif;
+
 }
 
 #katalog .oferta img {
@@ -361,27 +376,32 @@ footer{
     align-items: center;
 }
 
+#katalog .oferta .dane_oferta p {
+    font-family: 'Montserrat', sans-serif;
+}
+
 #katalog .oferta .dane_oferta .cena {
     font-size: 2rem;  
-
+    font-family: 'Montserrat', sans-serif;
 }
 
 #katalog #filtry {
     height: 100vh;
     width: 30vw;
-    background-color: aliceblue;
-    border: solid 3px var(--btns);
+    color: aliceblue;
+    background-color: var(--bd);
     border-radius: 5px;
     display: flex;
     align-self: flex-start;
     margin: 1rem 0 1rem 1rem;
+    font-family: 'Montserrat', sans-serif;
 }
 
 
 /* animacja z baner */
 @keyframes moves{
     0%   {left:-12rem;}
-    100% {left:5rem;}
+    100% {left:4rem;}
 }
 
 @media screen and (max-width: 900px){
