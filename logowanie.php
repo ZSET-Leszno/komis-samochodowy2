@@ -1,6 +1,10 @@
 <?php
 
     session_start();
+    if((isset($_SESSION['loged'])) && ($_SESSION['loged'] == true)){
+        header("Location: catalog.php");
+        exit();
+    }
     // Wylogowanie
     function logout(){
         if(isset($_POST['logout'])){
@@ -38,7 +42,7 @@
                 $row = $wynik->fetch_assoc();
                 if(password_verify($haslo,$row['Haslo'])){
                     $_SESSION['loged'] = true;
-                    echo($user = $row['Email']);
+                    header("Location: catalog.php");
                     $_SESSION['user'] = $row['Logd'];
 
                     //wpisac

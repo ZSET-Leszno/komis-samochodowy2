@@ -24,7 +24,7 @@
         <a href="#info" id="About" onclick="claser()">About</a>
         <a href="index.html">Contact</a>
         <a href="index.html">Catalog</a>
-        <a href="index.html">Login</a>
+        <a href="rejestracja.php">Login</a>
     </div>
     <nav>
         <span>
@@ -37,7 +37,7 @@
                 <div class="pz"><a target="_blank" href="#">About</a></div>
                 <div class="pz"><a href="#">Contact</a></div>
                 <div class="pz"><a href="#">Catalog</a></div>
-                <div class="pz"><a href="#">Login</a></div>
+                <div class="pz"><a href="rejestracja.php">Login</a></div>
             </section>
             <div id="toggler" onclick="openNav()">
                 <div class="strap"></div>
