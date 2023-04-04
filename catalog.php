@@ -76,7 +76,7 @@
                     $paliwo = "Diesel";
                 }
                 echo '<div class="oferta">';
-                echo '<img src="data:image/png;base64,'.base64_encode($rekord['zdj_1']).'">';
+                echo '<img src="'.($rekord['zdj_1']).'">';
                 echo '<div class="model"></div>';
                 echo'<div class="dane_oferta"><p class="cena">'."Cena: ".$rekord["Cena_zl"]." PLN".'</p><p>'."Rok produkcji: ".$rekord["Rok_produkcji"].'</p>
                 <p>'."Pojemność skokowa (cm3): ".$rekord["Pojemnosc_skokowa_cm3"].'</p><p>'."Paliwo: ".$paliwo.'</p><button>Obserwuj</button></div>';
