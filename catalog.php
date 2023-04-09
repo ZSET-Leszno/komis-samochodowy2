@@ -25,6 +25,8 @@
         <a href="index.html">Contact</a>
         <a href="index.html">Catalog</a>
         <a href="rejestracja.php">Login</a>
+        <a href="Filtry" onclick="filtry_r()">Login</a>
+        <!-- dodać liste rozwijana filtrow w menu mobilnym -->
     </div>
     <nav>
         <span>
@@ -58,16 +60,59 @@
             </div>
         </article>
     </div>
+
+    <div class="Wyszukiwarka">
+        <form action="" method="POST" id="Form_szukanie">
+            <input type="search" name="Szukanie" placeholder=" Szukaj">
+            <button id="Szukanie_button" onclick="document.getElementById('Form_szukanie').submit();"><i class="bi bi-search"></i></button>
+        </form>
+        <button id="Dodawanie_ogl"><a href="#">+ Dodaj Ogłoszenie</a></button>
+    </div>
+
     <section id="katalog">
-    <div id="filtry">FILTRY I SORTOWANIE</div>
+    <div id="filtry">
+        <form action="" method="POST">
+            <label for="Cena">Cena od, do:</label>
+            <div id="Cena">
+                <input type="number" name="Cena_przedzial_od" placeholder="PLN">
+                <input type="number" name="Cena_przedzial_do" placeholder="PLN">
+                <input type="submit" value="Szukaj">
+            </div>
+        </form>
+        <?php
+            $con = @new mysqli($host, $db_user, $db_password, $db_name);
+            if(!$con){
+                echo("nie działa");
+            } else{
+                echo('dziala'); 
+                }
+        ?>
+    </div>
     <?php
         
         $con = @new mysqli($host, $db_user, $db_password, $db_name);
         if(!$con){
             echo("nie działa");
         } else{
-            echo('dziala');
-            $wynik = mysqli_query($con, "SELECT * FROM samochody");
+            // echo('Działa');
+
+            if(empty($_POST['Cena_przedzial_od'])){
+                $cena_od = 0;
+            } else{
+                $cena_od = $_POST['Cena_przedzial_od'];
+            }
+            if(empty($_POST['Cena_przedzial_do'])){
+                $cena_do = 999999999;
+            } else{
+                $cena_do = $_POST['Cena_przedzial_do'];
+            }  
+            if(isset($_POST['Cena_przedzial_od']) || isset($_POST['Cena_przedzial_do'])){
+                $wynik = mysqli_query($con, "SELECT * FROM samochody JOIN modele ON samochody.Id_model = modele.Id JOIN marki ON modele.Id_marki = marki.Id WHERE Cena_zl > '$cena_od' and Cena_zl < '$cena_do' ");
+            }
+            else{
+                $wynik = mysqli_query($con, "SELECT * FROM samochody JOIN modele ON samochody.Id_model = modele.Id JOIN marki ON modele.Id_marki = marki.Id;");
+            }   
+
             echo '<div id="zamkniecie">';
             while($rekord = mysqli_fetch_array($wynik)){
                 if($rekord["Id_paliwo"] == 1){
@@ -77,13 +122,16 @@
                 }
                 echo '<div class="oferta">';
                 echo '<img src="'.($rekord['zdj_1']).'">';
-                echo '<div class="model"></div>';
-                echo'<div class="dane_oferta"><p class="cena">'."Cena: ".$rekord["Cena_zl"]." PLN".'</p><p>'."Rok produkcji: ".$rekord["Rok_produkcji"].'</p>
+
+                echo '<div class="model"><h1>'."".$rekord['Nazwa_marki']." ".$rekord['Nazwa_modelu']."".'</h1></div>';
+
+                echo'<div class="dane_oferta"><p class="cena">'."Cena: ".$rekord['Cena_zl']." PLN".'</p><p>'."Rok produkcji: ".$rekord["Rok_produkcji"].'</p>
                 <p>'."Pojemność skokowa (cm3): ".$rekord["Pojemnosc_skokowa_cm3"].'</p><p>'."Paliwo: ".$paliwo.'</p><button>Obserwuj</button></div>';
                 echo '</div>';
                 
             }
             echo '</div>';
+            
         }
 
     ?>

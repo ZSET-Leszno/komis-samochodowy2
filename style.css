@@ -231,11 +231,12 @@ main #cz1::after{
 }
 
 #prezentacja .obraz{
-    background-image: url(imgp1.jpg);
+    background-image: url(wp2619698.webp);
     height: 40vh;
     color: white;
     object-fit:cover;
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #prezentacja{
@@ -339,27 +340,28 @@ footer{
     display: flex;
     flex-direction: row;
     align-items: flex-end;
+    justify-content: space-around;
+    gap: 3rem;
     background-color: var(--bcg);
 }
 #katalog #zamkniecie{
     display: flex;
     flex-direction:column;
     width: 100%;
-    margin-right: 1rem;
+    margin-right: 2rem;
 }
 #katalog .oferta  {
     display: flex;
     flex-wrap: wrap;
-    padding: 2rem;
+    /* padding: 2rem; */
     width: 100%;
-    margin: 1rem 0 1rem 0;
+    margin: 1rem auto 1rem auto;
     border-radius: 5px;
     background-color: var(--bd);
     min-width: fit-content;
     justify-content:space-between;
     color: aliceblue;
     font-family: 'Montserrat', sans-serif;
-
 }
 
 #katalog .oferta img {
@@ -374,10 +376,20 @@ footer{
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    margin:  0 auto 0 auto;
+}
+
+#katalog .oferta .model{
+    display: flex;
+    padding: 0.6rem;
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0 auto 0 auto;
 }
 
 #katalog .oferta .dane_oferta p {
     font-family: 'Montserrat', sans-serif;
+    padding: 1vh;
 }
 
 #katalog .oferta .dane_oferta .cena {
@@ -395,7 +407,87 @@ footer{
     align-self: flex-start;
     margin: 1rem 0 1rem 1rem;
     font-family: 'Montserrat', sans-serif;
+    padding: 1rem;
 }
+
+#katalog .oferta:hover{
+    background-color: var(--tiles);
+}
+
+#filtry #Cena{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 1rem;
+    gap: 1rem;
+}
+
+#filtry #Cena input{
+    height: 1.5rem;
+    width: 5rem;
+}
+
+#filtry form{
+    padding: 0.5rem;
+}
+
+.Wyszukiwarka{
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+    background-color: var(--bd);
+}
+
+#Form_szukanie{
+    display: flex;
+    gap: 1rem;
+    border-radius: 5px;
+}
+
+#Form_szukanie input{
+    border-radius: 5px;
+    height: 2.5rem;
+    width: 30vw;
+    border: 0;
+}
+
+#Form_szukanie input:focus{
+    border: 0!important;
+}
+
+
+#Form_szukanie #Szukanie_button{
+    border: none;
+    color: var(--bcg);
+    background-color: var(--bd);
+    font-size: 2.3rem;
+    margin-top: -0.4rem;
+}
+
+#Form_szukanie #Szukanie_button:hover{
+    color: aliceblue;
+}
+
+.Wyszukiwarka #Dodawanie_ogl{
+    border: 3px solid var(--bcg);
+    border-radius: 7px;
+    background-color: var(--bd);
+    padding: 0.5rem 1rem ;
+}
+
+.Wyszukiwarka #Dodawanie_ogl a{
+    text-decoration: none;
+    color: var(--bcg);
+    font-weight: bold;
+}
+
+.Wyszukiwarka #Dodawanie_ogl:hover, .Wyszukiwarka #Dodawanie_ogl:hover a{
+    background-color: var(--bcg);
+    color: var(--btns);
+}
+
+
+
 
 
 /* animacja z baner */
@@ -439,9 +531,20 @@ footer{
     }
 }
 
+@media screen and (max-width: 1080px) {
+    #katalog .oferta img{
+        width: 100%!important;
+        height: 80%;
+    }
+}
+
 @media screen and (max-width: 850px) {
     #filtry {
         display: none!important;
+    }
+
+    #zamkniecie{
+        margin-left: 2rem;
     }
 }
 
