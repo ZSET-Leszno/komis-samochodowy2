@@ -120,14 +120,14 @@
                 } else{
                     $paliwo = "Diesel";
                 }
-                echo '<div class="oferta">';
+                echo '<a href="ogloszenie.php?ogl_id='.$rekord["Id_s"].'"><div class="oferta">';
                 echo '<img src="'.($rekord['zdj_1']).'">';
 
                 echo '<div class="model"><h1>'."".$rekord['Nazwa_marki']." ".$rekord['Nazwa_modelu']."".'</h1></div>';
 
                 echo'<div class="dane_oferta"><p class="cena">'."Cena: ".$rekord['Cena_zl']." PLN".'</p><p>'."Rok produkcji: ".$rekord["Rok_produkcji"].'</p>
                 <p>'."Pojemność skokowa (cm3): ".$rekord["Pojemnosc_skokowa_cm3"].'</p><p>'."Paliwo: ".$paliwo.'</p><button>Obserwuj</button></div>';
-                echo '</div>';
+                echo '</a></div>';
                 
             }
             echo '</div>';
