@@ -19,7 +19,6 @@
 }
 
 /* menu */
-
 nav span{
     display: flex;
     flex-direction: row;
@@ -519,7 +518,70 @@ footer{
     }
 }
 
+/* OGLOSZENIE */
 
+
+#Zdjecia_main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: auto;
+    /* margin-top: 5rem; */
+    width: 100%;
+    height: 50vh;
+}
+#carouselExampleDark{
+    height: fit-content;
+    margin-top: 7rem;
+}
+#carouselExampleDark .carousel-inner .carousel-item img{
+    height: 50vh;
+    width: 40vw;
+}
+
+#car_info{
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: aliceblue;
+    padding: 2rem;
+}
+
+#Specyfikacja, #Specyfikacja_2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 9rem;
+    color: aliceblue;
+}
+
+#Specyfikacja h1::after,#Specyfikacja_2 h1::after{
+    content: ' ';
+    display: block;
+    height: 3px;
+    background-color: var(--btns);
+    width: 70%;
+    margin: 1rem auto;
+}
+
+#Spec_fiter{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40vw;
+}
+
+#Spec_fiter div{
+    padding: 2rem;
+}
 
 
 @media screen and (min-width: 980px) {
