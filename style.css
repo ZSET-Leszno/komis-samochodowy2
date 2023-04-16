@@ -583,6 +583,28 @@ footer{
     padding: 2rem;
 }
 
+#Zakup{
+    margin: 2rem auto 2rem auto;
+    text-align: center;
+    color: aliceblue;
+}
+
+#Zakup a button{
+    background-color: var(--btns);
+    color: var(--bcg);
+    padding: 1rem 2rem;
+    font-weight: bold;
+    border: 0;
+    border-radius: 5px;
+}
+
+#Zakup a button:hover{
+    background-color: var(--btns_hover);
+    cursor: pointer;
+}
+
+
+
 
 @media screen and (min-width: 980px) {
     #sidenav {
