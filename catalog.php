@@ -76,6 +76,10 @@
             <div id="Cena">
                 <input type="number" name="Cena_przedzial_od" placeholder="PLN">
                 <input type="number" name="Cena_przedzial_do" placeholder="PLN">
+
+                <input type="number" name="przebieg_przedzial_od" placeholder="Km">
+                <input type="number" name="przebieg_przedzial_do" placeholder="Km">
+
                 <input type="submit" value="Szukaj">
             </div>
         </form>
@@ -96,23 +100,49 @@
         } else{
             // echo('Działa');
 
-            if(empty($_POST['Cena_przedzial_od'])){
-                $cena_od = 0;
-            } else{
-                $cena_od = $_POST['Cena_przedzial_od'];
-            }
-            if(empty($_POST['Cena_przedzial_do'])){
-                $cena_do = 999999999;
-            } else{
-                $cena_do = $_POST['Cena_przedzial_do'];
-            }  
-            if(isset($_POST['Cena_przedzial_od']) || isset($_POST['Cena_przedzial_do'])){
-                $wynik = mysqli_query($con, "SELECT * FROM samochody JOIN modele ON samochody.Id_model = modele.Id JOIN marki ON modele.Id_marki = marki.Id WHERE Cena_zl > '$cena_od' and Cena_zl < '$cena_do' ");
-            }
-            else{
-                $wynik = mysqli_query($con, "SELECT * FROM samochody JOIN modele ON samochody.Id_model = modele.Id JOIN marki ON modele.Id_marki = marki.Id;");
-            }   
 
+
+
+
+
+
+
+            function filtry(){
+
+                $zapytanie = "SELECT * FROM samochody JOIN modele ON samochody.Id_model = modele.Id JOIN marki ON modele.Id_marki = marki.Id WHERE Id_s like '%'";
+
+
+                if(empty($_POST['Cena_przedzial_od'])){
+                    $cena_od = 0;
+                } else{
+                    $cena_od = $_POST['Cena_przedzial_od'];
+                }
+                if(empty($_POST['Cena_przedzial_do'])){
+                    $cena_do = 999999999;
+                } else{
+                    $cena_do = $_POST['Cena_przedzial_do'];
+                }  
+                if(isset($_POST['Cena_przedzial_od']) || isset($_POST['Cena_przedzial_do'])){
+                    $Cena_zl= "Cena_zl";
+                    $and = "and";
+                    $zapytanie .=$and.$Cena_zl.">".'$cena_od'.$and.$Cena_zl."<".'$cena_do' ;
+                    echo $zapytanie;
+                }
+                else{
+                }
+
+            }
+
+            filtry();
+
+
+
+
+        
+
+            $zapytanie = "SELECT * FROM samochody JOIN modele ON samochody.Id_model = modele.Id JOIN marki ON modele.Id_marki = marki.Id WHERE Id_s like '%'";
+
+            $wynik = mysqli_query($con,$zapytanie);
             echo '<div id="zamkniecie">';
             while($rekord = mysqli_fetch_array($wynik)){
                 if($rekord["Id_paliwo"] == 1){
