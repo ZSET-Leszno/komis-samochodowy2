@@ -3,6 +3,6 @@
 	$host = "localhost";
 	$db_user = "root";
 	$db_password = "";
-	$db_name = "dane";
+	$db_name = "baza_danych";
 
 ?>
