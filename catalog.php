@@ -71,6 +71,7 @@
 
     <section id="katalog">
     <div id="filtry">
+<!----------------------------------------FORMULARZ DO FILTRÓW I SORTOWANIA---------------------------------------->
         <form action="" method="GET">
             <label for="Cena">Cena od, do:</label>
             <div id="Cena">
@@ -134,6 +135,7 @@
         try {
             $con = mysqli_connect($host, $db_user, $db_password, $db_name);
             $zapytanie = "SELECT * FROM samochody JOIN modele ON samochody.Id_model = modele.Id JOIN paliwa ON samochody.Id_paliwo = paliwa.Id JOIN marki ON modele.Id_marki = marki.Id WHERE 1 = 1";
+/*---------------------------------------------FILTRY---------------------------------------------*/
             if (isset($_GET["Cena_od"]) && $_GET["Cena_od"] != "") {
                 $zapytanie .= " AND Cena_zl >= ". $_GET['Cena_od'];
             } 
@@ -161,6 +163,7 @@
             if (isset($_GET["paliwo"]) && $_GET["paliwo"] != "0") {
                 $zapytanie .= " AND Id_paliwo = ". $_GET['paliwo'];
             } 
+/*---------------------------------------------SORTOWANIE---------------------------------------------*/
             if (isset($_GET["sortowanie"]) && $_GET["sortowanie"] == "1") {
                 $zapytanie .= " ORDER BY Cena_zl ASC";
             }
@@ -179,6 +182,7 @@
             if (isset($_GET["sortowanie"]) && $_GET["sortowanie"] == "6") {
                 $zapytanie .= " ORDER BY Rok_produkcji DESC";
             }
+/*---------------------------------------------WYŚWIETLANIE OGŁOSZEŃ---------------------------------------------*/
             $query = mysqli_query($con, $zapytanie);
             echo '<div id="zamkniecie">';
             while ($auto = mysqli_fetch_assoc($query)) {
