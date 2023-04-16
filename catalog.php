@@ -71,99 +71,139 @@
 
     <section id="katalog">
     <div id="filtry">
-        <form action="" method="POST">
+        <form action="" method="GET">
             <label for="Cena">Cena od, do:</label>
             <div id="Cena">
-                <input type="number" name="Cena_przedzial_od" placeholder="PLN">
-                <input type="number" name="Cena_przedzial_do" placeholder="PLN">
-
-                <input type="number" name="przebieg_przedzial_od" placeholder="Km">
-                <input type="number" name="przebieg_przedzial_do" placeholder="Km">
-
+                <input type="number" name="Cena_od" placeholder="PLN">
+                <input type="number" name="Cena_do" placeholder="PLN">
+                <input type="number" name="przebieg_od" placeholder="Km">
+                <input type="number" name="przebieg_do" placeholder="Km">
+                <input type="number" name="rok_od" placeholder="Rok">
+                <input type="number" name="rok_do" placeholder="Rok">
+                <select name="marka">
+                    <option value="0">Marka:</option>
+                    <?php
+                        $con = mysqli_connect($host, $db_user, $db_password, $db_name);
+                        $marka = "SELECT * FROM marki";
+                        $query = mysqli_query($con, $marka);
+                        while ($auto = mysqli_fetch_assoc($query)) {
+                            echo '<option value="'. $auto['Id'].'">' . $auto['Nazwa_marki'] .'</option>';
+                        }
+                        mysqli_close($con);
+                    ?>  
+                </select>
+                <select name="model">
+                    <option value="0">Model:</option>
+                    <?php
+                        $con = mysqli_connect($host, $db_user, $db_password, $db_name);
+                        $marka = "SELECT * FROM modele";
+                        $query = mysqli_query($con, $marka);
+                        while ($auto = mysqli_fetch_assoc($query)) {
+                            echo '<option value="'. $auto['Id'].'">' . $auto['Nazwa_modelu'] .'</option>';
+                        }
+                        mysqli_close($con);
+                    ?>  
+                </select>
+                <select name="paliwo">
+                    <option value="0">Paliwo:</option>
+                    <?php
+                        $con = mysqli_connect($host, $db_user, $db_password, $db_name);
+                        $marka = "SELECT * FROM paliwa";
+                        $query = mysqli_query($con, $marka);
+                        while ($auto = mysqli_fetch_assoc($query)) {
+                            echo '<option value="'. $auto['Id'].'">' . $auto['Rodzaj_paliwa'] .'</option>';
+                        }
+                        mysqli_close($con);
+                    ?>  
+                </select>
+                <select name="sortowanie">
+                        <option value="0">Sortuj:</option>
+                        <option value="1">Najniższa cena</option>
+                        <option value="2">Najwyższa cena</option>
+                        <option value="3">Najniższy przebieg</option>
+                        <option value="4">Najwyższy przebieg</option>
+                        <option value="5">Najstarszy rocznik</option>
+                        <option value="6">Najnowszy rocznik</option>
+                </select>
                 <input type="submit" value="Szukaj">
             </div>
         </form>
-        <?php
-            $con = @new mysqli($host, $db_user, $db_password, $db_name);
-            if(!$con){
-                echo("nie działa");
-            } else{
-                echo('dziala'); 
-                }
-        ?>
     </div>
+
     <?php
-        
-        $con = @new mysqli($host, $db_user, $db_password, $db_name);
-        if(!$con){
-            echo("nie działa");
-        } else{
-            // echo('Działa');
-
-
-
-
-
-
-
-
-            function filtry(){
-
-                $zapytanie = "SELECT * FROM samochody JOIN modele ON samochody.Id_model = modele.Id JOIN marki ON modele.Id_marki = marki.Id WHERE Id_s like '%'";
-
-
-                if(empty($_POST['Cena_przedzial_od'])){
-                    $cena_od = 0;
-                } else{
-                    $cena_od = $_POST['Cena_przedzial_od'];
-                }
-                if(empty($_POST['Cena_przedzial_do'])){
-                    $cena_do = 999999999;
-                } else{
-                    $cena_do = $_POST['Cena_przedzial_do'];
-                }  
-                if(isset($_POST['Cena_przedzial_od']) || isset($_POST['Cena_przedzial_do'])){
-                    $Cena_zl= "Cena_zl";
-                    $and = "and";
-                    $zapytanie .=$and.$Cena_zl.">".'$cena_od'.$and.$Cena_zl."<".'$cena_do' ;
-                    echo $zapytanie;
-                }
-                else{
-                }
-
+        try {
+            $con = mysqli_connect($host, $db_user, $db_password, $db_name);
+            $zapytanie = "SELECT * FROM samochody JOIN modele ON samochody.Id_model = modele.Id JOIN paliwa ON samochody.Id_paliwo = paliwa.Id JOIN marki ON modele.Id_marki = marki.Id WHERE 1 = 1";
+            if (isset($_GET["Cena_od"]) && $_GET["Cena_od"] != "") {
+                $zapytanie .= " AND Cena_zl >= ". $_GET['Cena_od'];
+            } 
+            if (isset($_GET["Cena_do"]) && $_GET["Cena_do"] != "") {
+                $zapytanie .= " AND Cena_zl <= ". $_GET['Cena_do'];
+            } 
+            if (isset($_GET["przebieg_od"]) && $_GET["przebieg_od"] != "") {
+                $zapytanie .= " AND Przebieg_km >= ". $_GET['przebieg_od'];
+            } 
+            if (isset($_GET["przebieg_do"]) && $_GET["przebieg_do"] != "") {
+                $zapytanie .= " AND Przebieg_km <= ". $_GET['przebieg_do'];
+            } 
+            if (isset($_GET["marka"]) && $_GET["marka"] != "0") {
+                $zapytanie .= " AND Id_marki = ". $_GET['marka'];
+            } 
+            if (isset($_GET["model"]) && $_GET["model"] != "0") {
+                $zapytanie .= " AND Id_model = ". $_GET['model'];
+            } 
+            if (isset($_GET["rok_od"]) && $_GET["rok_od"] != "") {
+                $zapytanie .= " AND Rok_produkcji >= ". $_GET['rok_od'];
+            } 
+            if (isset($_GET["rok_do"]) && $_GET["rok_do"] != "") {
+                $zapytanie .= " AND Rok_produkcji <= ". $_GET['rok_do'];
+            } 
+            if (isset($_GET["paliwo"]) && $_GET["paliwo"] != "0") {
+                $zapytanie .= " AND Id_paliwo = ". $_GET['paliwo'];
+            } 
+            if (isset($_GET["sortowanie"]) && $_GET["sortowanie"] == "1") {
+                $zapytanie .= " ORDER BY Cena_zl ASC";
             }
-
-            filtry();
-
-
-
-
-        
-
-            $zapytanie = "SELECT * FROM samochody JOIN modele ON samochody.Id_model = modele.Id JOIN marki ON modele.Id_marki = marki.Id WHERE Id_s like '%'";
-
-            $wynik = mysqli_query($con,$zapytanie);
+            if (isset($_GET["sortowanie"]) && $_GET["sortowanie"] == "2") {
+                $zapytanie .= " ORDER BY Cena_zl DESC";
+            }
+            if (isset($_GET["sortowanie"]) && $_GET["sortowanie"] == "3") {
+                $zapytanie .= " ORDER BY Przebieg_km ASC";
+            }
+            if (isset($_GET["sortowanie"]) && $_GET["sortowanie"] == "4") {
+                $zapytanie .= " ORDER BY Przebieg_km DESC";
+            }
+            if (isset($_GET["sortowanie"]) && $_GET["sortowanie"] == "5") {
+                $zapytanie .= " ORDER BY Rok_produkcji ASC";
+            }
+            if (isset($_GET["sortowanie"]) && $_GET["sortowanie"] == "6") {
+                $zapytanie .= " ORDER BY Rok_produkcji DESC";
+            }
+            $query = mysqli_query($con, $zapytanie);
             echo '<div id="zamkniecie">';
-            while($rekord = mysqli_fetch_array($wynik)){
-                if($rekord["Id_paliwo"] == 1){
-                    $paliwo = "Benzyna";
-                } else{
-                    $paliwo = "Diesel";
-                }
-                echo '<a href="ogloszenie.php?ogl_id='.$rekord["Id_s"].'"><div class="oferta">';
-                echo '<img src="'.($rekord['zdj_1']).'">';
-
-                echo '<div class="model"><h1>'."".$rekord['Nazwa_marki']." ".$rekord['Nazwa_modelu']."".'</h1></div>';
-
-                echo'<div class="dane_oferta"><p class="cena">'."Cena: ".$rekord['Cena_zl']." PLN".'</p><p>'."Rok produkcji: ".$rekord["Rok_produkcji"].'</p>
-                <p>'."Pojemność skokowa (cm3): ".$rekord["Pojemnosc_skokowa_cm3"].'</p><p>'."Paliwo: ".$paliwo.'</p><button>Obserwuj</button></div>';
-                echo '</a></div>';
-                
+            while ($auto = mysqli_fetch_assoc($query)) {
+                echo '
+                <div class="oferta">
+                    <a href="ogloszenie.php?ogl_id='.$auto['Id_s'].'">
+                        <img src="'.$auto['zdj_1'].'">
+                        <div class="model">
+                            <h1>'.$auto['Nazwa_marki'].' '.$auto['Nazwa_modelu'].'</h1>
+                        </div>
+                        <div class="dane_oferta">
+                            <p class="cena">'. number_format($auto['Cena_zl'], 0, ',', ' ').' PLN</p>
+                            <p>Rok produkcji: '.$auto['Rok_produkcji'].'</p>
+                            <p>Pojemność skokowa (cm3): '.$auto['Pojemnosc_skokowa_cm3'].'</p>
+                            <p>Paliwo: '.$auto['Rodzaj_paliwa'].'</p>
+                            <button>Obserwuj</button>
+                        </div>
+                    </a>
+                </div>
+                ';
             }
-            echo '</div>';
-            
+            mysqli_close($con);
+        } catch(Exception $e) {
+            echo $e->getMessage();
         }
-
     ?>
     </section>
 </html>
