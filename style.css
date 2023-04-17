@@ -414,6 +414,11 @@ footer{
     padding: 1rem;
 }
 
+#katalog #filtry form #Cena{
+    display: flex;
+    flex-direction: column;
+}
+
 #katalog .oferta a:hover{
     background-color: var(--tiles);
 }

@@ -1,3 +1,14 @@
+<?php
+    session_start();
+    require_once("conn.php");
+
+    // Wylogowanie
+    
+    if(isset($_GET['wyl'])){
+        session_destroy();
+        header("Location: glowna.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,12 +25,21 @@
 </head>
 <body>
 <!-- menu -->
-    <div id="sidenav">
-        <a href="index.html" id="Home" class="active" onclick="claser()">Home</a>
+<div id="sidenav">
+        <a href="glowna.php" id="Home" class="active" onclick="claser()">Home</a>
         <a href="#info" id="About" onclick="claser()">About</a>
         <a href="index.html">Contact</a>
         <a href="catalog.php">Catalog</a>
-        <a href="rejestracja.php">Login</a>
+        <?php
+            if((isset($_SESSION['loged'])) && ($_SESSION['loged'] == true)){
+                echo"<a href='catalog.php?wyl=1'>Wyloguj</a>";
+            }
+            else{
+                echo " <a href='rejestracja.php'>Login</a>";
+            }
+        ?>
+        <a href="Filtry" onclick="filtry_r()">Filtry</a>
+        <!-- dodać liste rozwijana filtrow w menu mobilnym -->
     </div>
     <nav>
         <span>
@@ -28,11 +48,19 @@
             </section>
 
             <section id="fit">
-                <div class="pz"><a href="index.html">Home</a></div>
+                <div class="pz"><a href="glowna.php">Home</a></div>
                 <div class="pz"><a target="_blank" href="#">About</a></div>
                 <div class="pz"><a href="#">Contact</a></div>
                 <div class="pz"><a href="catalog.php">Catalog</a></div>
-                <div class="pz"><a href="rejestracja.php">Login</a></div>
+                
+                <?php
+                    if((isset($_SESSION['loged'])) && ($_SESSION['loged'] == true)){
+                        echo'<div class="pz"><a href="catalog.php?wyl=1">Wyloguj</a></div>';
+                    }
+                    else{
+                        echo '<div class="pz"><a href="rejestracja.php">Login</a></div>';
+                    }
+                ?>
             </section>
             <div id="toggler" onclick="openNav()">
                 <div class="strap"></div>

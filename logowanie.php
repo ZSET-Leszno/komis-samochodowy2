@@ -2,7 +2,7 @@
 
     session_start();
     if((isset($_SESSION['loged'])) && ($_SESSION['loged'] == true)){
-        header("Location: catalog.php");
+        header("Location: glowna.php");
         exit();
     }
     // Wylogowanie
@@ -12,8 +12,6 @@
             header("Location: rejestracja.php");
         }
     }
-
-    logout();
 
     if((!isset($_POST['login'])) || (!isset($_POST['haslo']))){
         header("Location: rejestracja.php");
@@ -53,12 +51,14 @@
                 }
                 else{
                     $_SESSION['blad']='<div style="color:red; z-index:99; ">haslo</div>';
+                    $_SESSION['loged'] = false;
                     header('Location: rejestracja.php');
                     // Dodać $_SESSION['blad'] pod logowaniem jesli issset
                 }
             }
             else{
                 $_SESSION['blad']='<div id="sesion_blad" style="color:red; z-index:99; ">Nieprawidlowy login lub haslo</div>';
+                $_SESSION['loged'] = false;
                 header('Location: rejestracja.php');
                 // Dodać $_SESSION['blad'] pod logowaniem jesli issset
             }
@@ -76,9 +76,5 @@
     <title>Document</title>
 </head>
 <body>
-
-    <form action="" method="Post">
-        <input type="submit" name="logout" value="Wyloguj">
-    </form>
 </body>
 </html>

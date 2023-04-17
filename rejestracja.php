@@ -77,12 +77,20 @@
         </div>
         <div class="form-container sign-in-container">
             <form action="logowanie.php" method="post">
-                <h1>Zaloguj się</h1>
-                <br>
-                <input type="text" placeholder="Login" name="login" />
-                <input type="password" placeholder="Hasło" name="haslo" id="passwd"/>
-                <a href="#">Zapomniałeś hasła?</a>
-                <button>Zaloguj</button>
+            <?php
+                if((isset($_SESSION['loged'])) && ($_SESSION['loged'] == true)){
+                    echo"<a href='catalog.php?wyl=1'><h1>Zalogowano</h1></a>";
+                }
+                else{
+                    echo '<h1>Zaloguj się</h1>
+                                <br>
+                                <input type="text" placeholder="Login" name="login" />
+                                <input type="password" placeholder="Hasło" name="haslo" id="passwd"/>
+                                <a href="#">Zapomniałeś hasła?</a>
+                                <button>Zaloguj</button>';
+                }
+            ?> 
+            
             </form>
             <?php
                 // walidacja logowania
