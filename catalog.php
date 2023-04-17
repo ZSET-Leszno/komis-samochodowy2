@@ -82,10 +82,10 @@
         <article id="text">
             <div>
                 <span>
-                    <p>Lorem ipsum dolor!</p>
-                    <h1>Lorem ipsum dolor sit, amet consectetur.</h1>
+                    <p>DealerShip</p>
+                    <h1>Przyszłość motoryzacji jest właśnie tutaj.</h1>
                 </span>
-                <a href="glowna.php#info"><button>More info</button></a>
+                <a href="glowna.php#info"><button>Więcej informacji</button></a>
             </div>
         </article>
     </div>
@@ -95,7 +95,6 @@
             <input type="search" name="Szukanie" placeholder=" Szukaj">
             <button id="Szukanie_button" onclick="document.getElementById('Form_szukanie').submit();"><i class="bi bi-search"></i></button>
         </form>
-        <button id="Dodawanie_ogl"><a href="#">+ Dodaj Ogłoszenie</a></button>
     </div>
 
     <section id="katalog">
@@ -250,4 +249,45 @@
         }
     ?> 
     </section>
+    <footer>
+        <div>
+            <h4>Godziny otwarcia</h4>
+            <div>
+                <div>
+                    <p>Poniedziałek</p>
+                    <p>Wtorek</p>
+                    <p>Środa</p>
+                    <p>Czwartek</p>
+                    <p>Piątek</p>
+                    <p>Sobota</p>
+                    <p>Niedziela</p>
+                </div>
+                <div>
+                    <p>8:00 - 18:00</p>
+                    <p>8:00 - 18:00</p>
+                    <p>8:00 - 18:00</p>
+                    <p>8:00 - 18:00</p>
+                    <p>8:00 - 18:00</p>
+                    <p>9:00 - 15:00</p>
+                    <p>Zamknięte</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h4>Dane kontaktowe</h4>
+            <p>DealerShip</p>
+            <p>ul. Jana Kilińskiego 4</p>
+            <p>64-100 Leszno</p>
+            <p>tel. 123456789</p>
+        </div>
+        <div>
+            <h4>Przydatne informacje</h4>
+            <a href="glowna.php#">FAQ</a>
+            <a href="glowna.php#">Polityka prywatności</a>
+            <a href="glownwa.php#">Regulamin strony</a>
+        </div>
+    </footer>
+    <div id="copyright">
+        Wszelkie prawa zastrzeżone &copy;
+    </div>
 </html>

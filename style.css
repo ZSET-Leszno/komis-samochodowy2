@@ -306,10 +306,43 @@ main #cz1::after{
 }
 
 footer{
-    background-color: rgb(12, 12, 12);
-    height: 10vh;
+    background-color: rgb(20, 20, 20);
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+    gap: 20px;
+    flex-wrap: wrap;
+    white-space: nowrap;
 }
 
+footer div {
+    flex: 1;
+}
+
+footer > div > div {
+    display: flex;
+    gap: 20px;
+}
+
+footer h4 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #00A8E0;
+}
+
+footer p, footer a {
+    color: white;
+    display: block;
+    margin-bottom: 5px;
+    
+}
+
+#copyright {
+    background-color: rgb(10, 10, 10);
+    text-align: center;
+    padding: 10px 0;
+    color: grey;
+}
 
 #sidenav{
     display: flex;
@@ -544,25 +577,6 @@ footer{
 #Form_szukanie #Szukanie_button:hover{
     color: aliceblue;
 }
-
-.Wyszukiwarka #Dodawanie_ogl{
-    border: 3px solid var(--bcg);
-    border-radius: 7px;
-    background-color: var(--bd);
-    padding: 0.5rem 1rem ;
-}
-
-.Wyszukiwarka #Dodawanie_ogl a{
-    text-decoration: none;
-    color: var(--bcg);
-    font-weight: bold;
-}
-
-.Wyszukiwarka #Dodawanie_ogl:hover, .Wyszukiwarka #Dodawanie_ogl:hover a{
-    background-color: var(--bcg);
-    color: var(--btns);
-}
-
 
 
 

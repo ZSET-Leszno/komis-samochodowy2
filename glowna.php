@@ -81,10 +81,10 @@
         <article id="text">
             <div>
                 <span>
-                    <p>Lorem ipsum dolor!</p>
-                    <h1>Lorem ipsum dolor sit, amet consectetur.</h1>
+                    <p>DealerShip</p>
+                    <h1>Przyszłość motoryzacji jest właśnie tutaj.</h1>
                 </span>
-                <a href="glowna.php#info"><button>More info</button></a>
+                <a href="glowna.php#info"><button>Więcej informacji</button></a>
             </div>
         </article>
     </div>
@@ -94,25 +94,25 @@
             <div class="tile">
                 <div class="d-flex flex-row justify-content-evenly flex-shrink-1">
                     <h2><a href=""><i class="bi bi-telephone-fill"></i></a></h2>
-                    <h3>723 871 522</h3>
+                    <h3>123 456 789</h3>
                 </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>W razie pytań skontaktuj się z nami pod podanym numerem</p>
             </div>
 
             <div class="tile">
                 <div class="d-flex flex-row justify-content-evenly">
                     <h2><a href=""><i class="bi bi-calendar-event"></i></a></h2>
-                    <h3>Book your visit</h3>
+                    <h3>Zarezerwuj wizytę</h3>
                 </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>Zarezerwuj swoją wizytę na wybraną godzinę i dzień</p>
             </div>
 
             <div class="tile">
                 <div class="d-flex flex-row justify-content-evenly">
                     <h2><a href=""><i class="bi bi-geo-alt-fill"></i></a></h2>
-                    <h3>Find us here</h3>
+                    <h3>Znajdź nas tutaj</h3>
                 </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>Nasz salon samochodowy możesz znaleźć pod tym adresem</p>
             </div>
             
             <div class="tile_2 d-flex flex-row align-middle justify-content-center align-items-center">
@@ -145,7 +145,45 @@
     </main>
     <!-- zdj jasniejsze i kolor czcionki na czarny -->
     <footer>
-        
+        <div>
+            <h4>Godziny otwarcia</h4>
+            <div>
+                <div>
+                    <p>Poniedziałek</p>
+                    <p>Wtorek</p>
+                    <p>Środa</p>
+                    <p>Czwartek</p>
+                    <p>Piątek</p>
+                    <p>Sobota</p>
+                    <p>Niedziela</p>
+                </div>
+                <div>
+                    <p>8:00 - 18:00</p>
+                    <p>8:00 - 18:00</p>
+                    <p>8:00 - 18:00</p>
+                    <p>8:00 - 18:00</p>
+                    <p>8:00 - 18:00</p>
+                    <p>9:00 - 15:00</p>
+                    <p>Zamknięte</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h4>Dane kontaktowe</h4>
+            <p>DealerShip</p>
+            <p>ul. Jana Kilińskiego 4</p>
+            <p>64-100 Leszno</p>
+            <p>tel. 123456789</p>
+        </div>
+        <div>
+            <h4>Przydatne informacje</h4>
+            <a href="#">FAQ</a>
+            <a href="#">Polityka prywatności</a>
+            <a href="#">Regulamin strony</a>
+        </div>
     </footer>
+    <div id="copyright">
+        Wszelkie prawa zastrzeżone &copy;
+    </div>
 </body>
 </html>
