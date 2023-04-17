@@ -238,13 +238,41 @@ main #cz1::after{
     background-size: cover;
 }
 
+#prezentacja .obraz2{
+    background-image: url(3_2.webp);
+    height: 40vh;
+    color: white;
+    object-fit:cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#prezentacja .obraz3{
+    background-image: url(download.webp);
+    height: 40vh;
+    color: white;
+    object-fit:cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#prezentacja .obraz4{
+    background-image: url(images.webp);
+    height: 40vh;
+    color: white;
+    object-fit:cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
 #prezentacja{
     margin-bottom:5rem;
     overflow: hidden;
     min-width: fit-content;
 }
 
-.obraz{
+.obraz, .obraz2, .obraz3, .obraz4{
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -254,22 +282,26 @@ main #cz1::after{
     box-sizing:border-box;
 }
 
-.obraz a{
-    font-size: 6vw;
+.obraz a, .obraz2 a, .obraz3 a, .obraz4 a{
+    font-size: 2vw;
     text-decoration: none;
     margin: auto;
     color: white;
     display: none;
 }
 
-.obraz:hover{
+.obraz:hover, .obraz2:hover, .obraz3:hover, .obraz4:hover{
     background-color:rgba(0, 0, 0, 0.795);
     background-blend-mode: multiply;
     cursor: pointer;
 }
 
-.obraz:hover a{
+.obraz:hover a, .obraz2:hover a, .obraz3:hover a, .obraz4:hover a{
     display: block;
+}
+
+.obraz a:hover, .obraz2 a:hover, .obraz3 a:hover, .obraz4 a:hover{
+    color: rgba(240, 248, 255, 0.568);
 }
 
 footer{
@@ -402,7 +434,7 @@ footer{
 }
 
 #katalog #filtry {
-    height: 100vh;
+    height: fit-content;
     width: 30vw;
     color: aliceblue;
     background-color: var(--bd);
@@ -412,11 +444,46 @@ footer{
     margin: 1rem 0 1rem 1rem;
     font-family: 'Montserrat', sans-serif;
     padding: 1rem;
+    justify-content: center;
 }
 
 #katalog #filtry form #Cena{
     display: flex;
     flex-direction: column;
+    padding: auto;
+}
+
+#katalog #filtry form #Cena #Submit_filtry{
+    background-color: var(--btns);
+    border: none;
+    padding: 0.8rem;
+    height: 3rem;
+    border-radius: 5px;
+    width: 100%;
+    color:aliceblue;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+#katalog #filtry form #Cena #Submit_filtry:hover{
+    background-color: var(--btns_hover);
+    color:rgba(240, 248, 255, 0.568);
+}
+
+#katalog #filtry form #Cena label::before{
+    content: ' ';
+    display: block;
+    height: 3px;
+    background-color: var(--btns);
+    width: 100%;
+    margin: 1rem auto;
+}
+
+#katalog #filtry form input{
+    background-color: #eee;
+    border: none;
+    padding: 1rem 1.5rem;
+    width: 100%;
 }
 
 #katalog .oferta a:hover{
@@ -633,17 +700,27 @@ footer{
 }
 
 @media screen and (max-width: 850px) {
-    #filtry {
+    /* #filtry {
         display: none!important;
-    }
+    } */
 
     #zamkniecie{
         margin-left: 2rem;
     }
+
+    #katalog{
+        flex-wrap: wrap;
+    }
+
+    #katalog #filtry{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 @media screen and (min-width: 900px) {
-    #filtry {
+    /* #filtry {
         display: block!important;
-    }
+    } */
 }

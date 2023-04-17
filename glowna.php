@@ -22,12 +22,20 @@
     <title>Document</title>
     <script async src="index.js"></script>
     <script async src="claser.js"></script>
+    <script src="https://www.momentcrm.com/embed%22%3E"></script>
+    <script>
+        MomentCRM('init', {
+            'teamVanityId': 'caro',
+            'doChat': true,
+            'doTracking': true,
+        });
+    </script>
 </head>
 <body>
 <!-- menu -->
 <div id="sidenav">
         <a href="glowna.php" id="Home" class="active" onclick="claser()">Home</a>
-        <a href="#info" id="About" onclick="claser()">About</a>
+        <a href="glowna.php#info" id="About" onclick="claser()">About</a>
         <a href="index.html">Contact</a>
         <a href="catalog.php">Catalog</a>
         <?php
@@ -49,7 +57,7 @@
 
             <section id="fit">
                 <div class="pz"><a href="glowna.php">Home</a></div>
-                <div class="pz"><a target="_blank" href="#">About</a></div>
+                <div class="pz"><a href="glowna.php#info">About</a></div>
                 <div class="pz"><a href="#">Contact</a></div>
                 <div class="pz"><a href="catalog.php">Catalog</a></div>
                 
@@ -129,10 +137,10 @@
         <section id="prezentacja" class="d-flex flex-column flex-nowrap align-items-center col-12">
             <h1>Lorem <span>Ipsum</span> Dolor!</h1>
             <div class="d-flex justify-content-center col-9 flex-wrap gap-3 m-5">
-                <div class="obraz col-5 "><a href="">LOREM</a></div>
-                <div class="obraz col-5 "><a href="">LOREM</a></div>
-                <div class="obraz col-5 "><a href="">LOREM</a></div>
-                <div class="obraz col-5 "><a href="">LOREM</a></div>
+                <div class="obraz col-5 "><a href="catalog.php?paliwo=1">Samochody Benzynowe</a></div>
+                <div class="obraz2 col-5 "><a href="catalog.php?paliwo=4">Samochody Diesla</a></div>
+                <div class="obraz3 col-5 "><a href="catalog.php?paliwo=5">Samochody Elektryczne</a></div>
+                <div class="obraz4 col-5 "><a href="catalog.php?paliwo=7">Samochody Hybrydowe</a></div>
             </div>
         </section>
     </main>
