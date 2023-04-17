@@ -24,10 +24,10 @@
 <!-- menu -->
 <!-- menu -->
 <div id="sidenav">
-        <a href="glowna.php" id="Home" class="active" onclick="claser()">Home</a>
-        <a href="#info" id="About" onclick="claser()">About</a>
-        <a href="index.html">Contact</a>
-        <a href="index.html">Catalog</a>
+        <a href="glowna.php" id="Home" class="active" onclick="claser()">Główna</a>
+        <a href="#info" id="About" onclick="claser()">O nas</a>
+        <a href="catalog.php">Kontakt</a>
+        <a href="catalog.php">Katalog</a>
         <?php
             if((isset($_SESSION['loged'])) && ($_SESSION['loged'] == true)){
                 echo"<a href='catalog.php?wyl=1'>Wyloguj</a>";
@@ -36,7 +36,6 @@
                 echo " <a href='rejestracja.php'>Login</a>";
             }
         ?>
-        <a href="Filtry" onclick="filtry_r()">Filtry</a>
         <!-- dodać liste rozwijana filtrow w menu mobilnym -->
     </div>
     <nav>
@@ -46,17 +45,17 @@
             </section>
 
             <section id="fit">
-                <div class="pz"><a href="glowna.php">Home</a></div>
-                <div class="pz"><a href="glowna.php#info">About</a></div>
-                <div class="pz"><a href="#">Contact</a></div>
-                <div class="pz"><a href="#">Catalog</a></div>
+                <div class="pz"><a href="glowna.php">Główna</a></div>
+                <div class="pz"><a href="glowna.php#info">O nas</a></div>
+                <div class="pz"><a href="#">Kontakt</a></div>
+                <div class="pz"><a href="catalog.php">Katalog</a></div>
                 
                 <?php
                     if((isset($_SESSION['loged'])) && ($_SESSION['loged'] == true)){
                         echo'<div class="pz"><a href="catalog.php?wyl=1">Wyloguj</a></div>';
                     }
                     else{
-                        echo '<div class="pz"><a href="rejestracja.php">Login</a></div>';
+                        echo '<div class="pz"><a href="rejestracja.php">Zaloguj</a></div>';
                     }
                 ?>
             </section>
@@ -89,7 +88,7 @@
     <?php
     
         $con = mysqli_connect($host, $db_user, $db_password, $db_name);
-        $zapytanie = "SELECT * FROM samochody JOIN modele ON samochody.Id_model = modele.Id JOIN paliwa ON samochody.Id_paliwo = paliwa.Id JOIN marki ON modele.Id_marki = marki.Id WHERE Id_s =" .$_GET['ogl_id'];
+        $zapytanie = "SELECT * FROM samochody JOIN modele ON samochody.Id_model = modele.Id JOIN skrzynie_biegow ON skrzynie_biegow.Id = samochody.Id_skrzynia_biegow JOIN kolory ON kolory.Id = samochody.Id_kolor JOIN paliwa ON samochody.Id_paliwo = paliwa.Id JOIN marki ON modele.Id_marki = marki.Id WHERE Id_s =" .$_GET['ogl_id'];
         $wynik = mysqli_query($con,$zapytanie);
         $auto = mysqli_fetch_assoc($wynik);
     
@@ -121,7 +120,7 @@
             </section>';
         echo'
             <section id="Specyfikacja">
-                <h1>'.$auto['Nazwa_marki'].'</h1>
+                <h1>'.$auto['Nazwa_marki'].' '.$auto['Nazwa_modelu'].'</h1>
                 <div id="Spec_fiter">
                     <div>
                         <p>Moc:</p>
@@ -130,6 +129,8 @@
                         <p>Paliwo:</p>
                         <p>Rok produkcji:</p>
                         <p>Liczba drzwi:</p>
+                        <p>Kolor:</p>
+                        <p>Skrzynia biegów:</p>
                     </div>
                     
                     <div>
@@ -139,6 +140,8 @@
                         <p>'.$auto['Rodzaj_paliwa'].'</p>
                         <p>'.$auto['Rok_produkcji'].'</p>
                         <p>'.$auto['Liczba_drzwi'].'</p>
+                        <p>'.$auto['Kolor'].'</p>
+                        <p>'.$auto['Skrzynia_biegow'].'</p>
                     </div>
                 </div>
             </section>
@@ -150,10 +153,19 @@
                     </div>
             </section>
             <div id="Zakup">
-                <h1>Cena: 555555 PLN</h1>
-                <a href=""><button>Zamów</button></a>
-            </div>
-            </section>';
+                <h1>Cena: '.number_format($auto['Cena_zl'], 0, ',', ' ').' PLN</h1>';
+
+
+                if((isset($_SESSION['loged'])) && ($_SESSION['loged'] == true)){
+                    echo'<a href="catalog.php"><button>Zadzwoń</button></a>';
+                }
+                else{
+                    echo '<a href="rejestracja.php"><button>Zadzwoń</button></a>';
+                }
+
+            echo'       
+                </div>
+                </section>';
     ?>
     <footer>
     <script>
