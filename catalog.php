@@ -23,6 +23,14 @@
     <title>Document</title>
     <script async src="index.js"></script>
     <script async src="claser.js"></script>
+    <script src="https://www.momentcrm.com/embed%22%3E"></script>
+    <script>
+        MomentCRM('init', {
+            'teamVanityId': 'caro',
+            'doChat': true,
+            'doTracking': true,
+        });
+    </script>
 </head>
 <body>
 <!-- menu -->
@@ -98,13 +106,13 @@
             <div id="Cena">
                 <label for="Cena">Cena od, do:</label>
                 <input type="number" name="Cena_od" placeholder="PLN">
-                <input type="number" name="Cena_do" placeholder="PLN"><br>
+                <input type="number" name="Cena_do" placeholder="PLN"><br><br>
                 <label for="Cena">Przebieg od, do:</label>
                 <input type="number" name="przebieg_od" placeholder="Km">
-                <input type="number" name="przebieg_do" placeholder="Km"><br>
+                <input type="number" name="przebieg_do" placeholder="Km"><br><br>
                 <label for="Cena">Rok produkcji od, do:</label>
                 <input type="number" name="rok_od" placeholder="Rok">
-                <input type="number" name="rok_do" placeholder="Rok"><br>
+                <input type="number" name="rok_do" placeholder="Rok"><br><br> 
                 <select name="marka">
                     <option value="0">Marka:</option>
                     <?php
@@ -141,6 +149,7 @@
                         mysqli_close($con);
                     ?>  
                 </select>
+                <label for="sortowanie">Sortowanie</label>
                 <select name="sortowanie">
                         <option value="0">Sortuj:</option>
                         <option value="1">Najniższa cena</option>
@@ -150,7 +159,7 @@
                         <option value="5">Najstarszy rocznik</option>
                         <option value="6">Najnowszy rocznik</option>
                 </select>
-                <input type="submit" value="Szukaj">
+                <input type="submit" value="SZUKAJ" id="Submit_filtry">
             </div>
         </form>
     </div>
