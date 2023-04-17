@@ -58,7 +58,7 @@
 
             <section id="fit">
                 <div class="pz"><a href="glowna.php">Home</a></div>
-                <div class="pz"><a target="_blank" href="#">About</a></div>
+                <div class="pz"><a href="glowna.php#info">About</a></div>
                 <div class="pz"><a href="#">Contact</a></div>
                 <div class="pz"><a href="#">Catalog</a></div>
                 

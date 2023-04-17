@@ -22,13 +22,21 @@
 </head>
 <body style="background-color: #201c2b;">
 <!-- menu -->
+<!-- menu -->
 <div id="sidenav">
-        <a href="index.html" id="Home" class="active" onclick="claser()">Home</a>
+        <a href="glowna.php" id="Home" class="active" onclick="claser()">Home</a>
         <a href="#info" id="About" onclick="claser()">About</a>
         <a href="index.html">Contact</a>
         <a href="index.html">Catalog</a>
-        <a href="rejestracja.php">Login</a>
-        <a href="Filtry" onclick="filtry_r()">Login</a>
+        <?php
+            if((isset($_SESSION['loged'])) && ($_SESSION['loged'] == true)){
+                echo"<a href='catalog.php?wyl=1'>Wyloguj</a>";
+            }
+            else{
+                echo " <a href='rejestracja.php'>Login</a>";
+            }
+        ?>
+        <a href="Filtry" onclick="filtry_r()">Filtry</a>
         <!-- dodać liste rozwijana filtrow w menu mobilnym -->
     </div>
     <nav>
@@ -38,11 +46,19 @@
             </section>
 
             <section id="fit">
-                <div class="pz"><a href="index.html">Home</a></div>
-                <div class="pz"><a target="_blank" href="#">About</a></div>
+                <div class="pz"><a href="glowna.php">Home</a></div>
+                <div class="pz"><a href="glowna.php#info">About</a></div>
                 <div class="pz"><a href="#">Contact</a></div>
                 <div class="pz"><a href="#">Catalog</a></div>
-                <div class="pz"><a href="rejestracja.php">Login</a></div>
+                
+                <?php
+                    if((isset($_SESSION['loged'])) && ($_SESSION['loged'] == true)){
+                        echo'<div class="pz"><a href="catalog.php?wyl=1">Wyloguj</a></div>';
+                    }
+                    else{
+                        echo '<div class="pz"><a href="rejestracja.php">Login</a></div>';
+                    }
+                ?>
             </section>
             <div id="toggler" onclick="openNav()">
                 <div class="strap"></div>
