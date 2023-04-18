@@ -52,7 +52,7 @@
     <nav>
         <span>
             <section id="logo">
-                <h1><i>DealerShip</i></h1>
+                <h1><i>CARO</i></h1>
             </section>
 
             <section id="fit">
