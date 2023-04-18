@@ -37,7 +37,6 @@
     <div id="sidenav">
         <a href="glowna.php" id="Home" class="active" onclick="claser()">Główna</a>
         <a href="#info" id="About" onclick="claser()">O nas</a>
-        <a href="index.html">Kontakt</a>
         <a href="index.html">Katalog</a>
         <?php
             if((isset($_SESSION['loged'])) && ($_SESSION['loged'] == true)){
@@ -58,7 +57,6 @@
             <section id="fit">
                 <div class="pz"><a href="glowna.php">Główna</a></div>
                 <div class="pz"><a href="glowna.php#info">O nas</a></div>
-                <div class="pz"><a href="#">Kontakt</a></div>
                 <div class="pz"><a href="#">Katalog</a></div>
                 
                 <?php

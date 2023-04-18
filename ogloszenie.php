@@ -26,7 +26,6 @@
 <div id="sidenav">
         <a href="glowna.php" id="Home" class="active" onclick="claser()">Główna</a>
         <a href="#info" id="About" onclick="claser()">O nas</a>
-        <a href="catalog.php">Kontakt</a>
         <a href="catalog.php">Katalog</a>
         <?php
             if((isset($_SESSION['loged'])) && ($_SESSION['loged'] == true)){
@@ -47,7 +46,6 @@
             <section id="fit">
                 <div class="pz"><a href="glowna.php">Główna</a></div>
                 <div class="pz"><a href="glowna.php#info">O nas</a></div>
-                <div class="pz"><a href="#">Kontakt</a></div>
                 <div class="pz"><a href="catalog.php">Katalog</a></div>
                 
                 <?php
@@ -175,6 +173,45 @@
             'doTracking': true,
         });
     </script>
+            <div>
+            <h4>Godziny otwarcia</h4>
+            <div>
+                <div>
+                    <p>Poniedziałek</p>
+                    <p>Wtorek</p>
+                    <p>Środa</p>
+                    <p>Czwartek</p>
+                    <p>Piątek</p>
+                    <p>Sobota</p>
+                    <p>Niedziela</p>
+                </div>
+                <div>
+                    <p>8:00 - 18:00</p>
+                    <p>8:00 - 18:00</p>
+                    <p>8:00 - 18:00</p>
+                    <p>8:00 - 18:00</p>
+                    <p>8:00 - 18:00</p>
+                    <p>9:00 - 15:00</p>
+                    <p>Zamknięte</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h4>Dane kontaktowe</h4>
+            <p>DealerShip</p>
+            <p>ul. Jana Kilińskiego 4</p>
+            <p>64-100 Leszno</p>
+            <p>tel. 123456789</p>
+        </div>
+        <div>
+            <h4>Przydatne informacje</h4>
+            <a href="#">FAQ</a>
+            <a href="#">Polityka prywatności</a>
+            <a href="#">Regulamin strony</a>
+        </div>
     </footer>
+    <div id="copyright">
+        Wszelkie prawa zastrzeżone &copy;
+    </div>
 </body>
 </html>
