@@ -281,7 +281,7 @@
             <h4>Przydatne informacje</h4>
             <a href="glowna.php#">FAQ</a>
             <a href="glowna.php#">Polityka prywatności</a>
-            <a href="glownwa.php#">Regulamin strony</a>
+            <a href="glowna.php#">Regulamin strony</a>
         </div>
     </footer>
     <div id="copyright">
