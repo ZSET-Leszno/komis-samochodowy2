@@ -88,7 +88,7 @@
     </div>
 
     <div class="Wyszukiwarka">
-        <form action="" method="POST" id="Form_szukanie">
+        <form action="#katalog" method="POST" id="Form_szukanie">
             <input type="search" name="Szukanie" placeholder=" Szukaj">
             <button id="Szukanie_button" onclick="document.getElementById('Form_szukanie').submit();"><i class="bi bi-search"></i></button>
         </form>
