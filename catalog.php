@@ -37,7 +37,7 @@
     <div id="sidenav">
         <a href="glowna.php" id="Home" class="active" onclick="claser()">Główna</a>
         <a href="#info" id="About" onclick="claser()">O nas</a>
-        <a href="index.html">Katalog</a>
+        <a href="catalog.php">Katalog</a>
         <?php
             if((isset($_SESSION['loged'])) && ($_SESSION['loged'] == true)){
                 echo"<a href='catalog.php?wyl=1'>Wyloguj</a>";
@@ -53,7 +53,6 @@
             <section id="logo">
                 <h1><i>CARO</i></h1>
             </section>
-
             <section id="fit">
                 <div class="pz"><a href="glowna.php">Główna</a></div>
                 <div class="pz"><a href="glowna.php#info">O nas</a></div>
@@ -98,7 +97,7 @@
     <section id="katalog">
     <div id="filtry">
 <!----------------------------------------FORMULARZ DO FILTRÓW I SORTOWANIA---------------------------------------->
-        <form action="" method="GET">
+        <form action="#katalog" method="GET">
             <div id="Cena">
                 <label for="Cena">Cena od, do:</label>
                 <input type="number" name="Cena_od" placeholder="PLN">
